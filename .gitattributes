@@ -1,4 +1,5 @@
 
+
 #include <Adafruit_CircuitPlayground.h>
 int vals[8] = {3,2,0,1,6,9,10, 12}; 
 float pitches[8] = {261.626, 293.665, 329.628, 349.228, 391.995, 440.0, 493.883, 523.251};
@@ -12,14 +13,15 @@ void setup(){
  void loop(){
   
   for (int i=0; i<8; i++){
-     int x = ( CircuitPlayground.readCap(vals[i]));
-     if (x > 800){
-      CircuitPlayground.playTone(pitches[i], 100);
-      }
-    }
 
- //CircuitPlayground.playTone(500, 500);
- 
-  delay(100);
+     int x = ( CircuitPlayground.readCap(vals[i]));
+     if (x > 680){
+      CircuitPlayground.playTone(pitches[i], 100);
+     CircuitPlayground.setPixelColor(i, 98, 12, 143);
+      }
+  }
+
+  delay(15);
+
   
   }
